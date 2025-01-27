@@ -5,7 +5,9 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "langchain-ollama>=0.2.2",
     "ollama>=0.4.5",
+    "pytube>=15.0.0",
     "streamlit>=1.41.1",
     "youtube-transcript-api>=0.6.3",
 ]

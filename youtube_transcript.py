@@ -1,5 +1,6 @@
 from youtube_transcript_api import YouTubeTranscriptApi
-
+import urllib.request
+import re
 
 class YoutubeTranscript():
     def __init__(self, video_link):
@@ -20,3 +21,29 @@ class YoutubeTranscript():
             return full_text
         except Exception as e:
             raise(e)
+        
+    def get_transcript_json(self):
+        try:
+            data = YouTubeTranscriptApi.get_transcript(self.video_code)
+            return data
+        except Exception as e:
+            raise(e)
+        
+    def get_youtube_video_title(self):
+        try:
+            response = urllib.request.urlopen(self.video_link)
+            html = response.read().decode("utf-8")
+            title_match = re.search(r'"title":"(.*?)"', html)
+            if not title_match:
+                title_match = re.search(r'<title>(.*?) - YouTube</title>', html)
+
+            if title_match:
+                title = title_match.group(1)
+                title = bytes(title, "utf-8").decode("unicode_escape")
+                return title.strip()
+            else:
+                return "Title not found"
+
+        except Exception as e:
+            return f"Error: {str(e)}"
+        
