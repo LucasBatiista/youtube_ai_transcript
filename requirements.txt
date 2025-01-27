@@ -34,7 +34,9 @@ h11==0.14.0
 httpcore==1.0.7
     # via httpx
 httpx==0.27.2
-    # via ollama
+    # via
+    #   langsmith
+    #   ollama
 idna==3.10
     # via
     #   anyio
@@ -44,10 +46,20 @@ jinja2==3.1.5
     # via
     #   altair
     #   pydeck
+jsonpatch==1.33
+    # via langchain-core
+jsonpointer==3.0.0
+    # via jsonpatch
 jsonschema==4.23.0
     # via altair
 jsonschema-specifications==2024.10.1
     # via jsonschema
+langchain-core==0.3.31
+    # via langchain-ollama
+langchain-ollama==0.2.2
+    # via youtube-ai-transcript (pyproject.toml)
+langsmith==0.3.2
+    # via langchain-core
 markdown-it-py==3.0.0
     # via rich
 markupsafe==3.0.2
@@ -62,10 +74,15 @@ numpy==2.2.1
     #   pydeck
     #   streamlit
 ollama==0.4.5
-    # via youtube-ai-transcript (pyproject.toml)
+    # via
+    #   youtube-ai-transcript (pyproject.toml)
+    #   langchain-ollama
+orjson==3.10.15
+    # via langsmith
 packaging==24.2
     # via
     #   altair
+    #   langchain-core
     #   streamlit
 pandas==2.2.3
     # via streamlit
@@ -76,7 +93,10 @@ protobuf==5.29.3
 pyarrow==18.1.0
     # via streamlit
 pydantic==2.10.5
-    # via ollama
+    # via
+    #   langchain-core
+    #   langsmith
+    #   ollama
 pydantic-core==2.27.2
     # via pydantic
 pydeck==0.9.1
@@ -85,16 +105,24 @@ pygments==2.19.1
     # via rich
 python-dateutil==2.9.0.post0
     # via pandas
+pytube==15.0.0
+    # via youtube-ai-transcript (pyproject.toml)
 pytz==2024.2
     # via pandas
+pyyaml==6.0.2
+    # via langchain-core
 referencing==0.35.1
     # via
     #   jsonschema
     #   jsonschema-specifications
 requests==2.32.3
     # via
+    #   langsmith
+    #   requests-toolbelt
     #   streamlit
     #   youtube-transcript-api
+requests-toolbelt==1.0.0
+    # via langsmith
 rich==13.9.4
     # via streamlit
 rpds-py==0.22.3
@@ -112,7 +140,9 @@ sniffio==1.3.1
 streamlit==1.41.1
     # via youtube-ai-transcript (pyproject.toml)
 tenacity==9.0.0
-    # via streamlit
+    # via
+    #   langchain-core
+    #   streamlit
 toml==0.10.2
     # via streamlit
 tornado==6.4.2
@@ -121,6 +151,7 @@ typing-extensions==4.12.2
     # via
     #   altair
     #   anyio
+    #   langchain-core
     #   pydantic
     #   pydantic-core
     #   streamlit
@@ -132,3 +163,5 @@ watchdog==6.0.0
     # via streamlit
 youtube-transcript-api==0.6.3
     # via youtube-ai-transcript (pyproject.toml)
+zstandard==0.23.0
+    # via langsmith
